@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <title>Hasil</title>
+    </head>
+
+    <body>        
+
+        <div class="jumbotron mx-auto my-4", style="width: 500px;">
+            {% if prediction == 1 %}
+                <h1 class="display-4">Hoax!</h1>
+                <p class="lead">Perhatian! Teks berita ini <b>berpotensi</b> merupakan berita <b>hoax</b>. Waspadalah terkait penyebaran berita bohong dengan membaca sumber terpercaya.</p>
+                <hr class="my-4">
+                <p>Hasil yang ditampilkan pada laman ini tidaklah 100% akurat karena menggunakan algoritma <em>machine learning</em> sederhana.</p>
+                <a class="btn btn-primary btn-lg" href="https://www.instagram.com/jabarsaberhoaks/?hl=id" role="button">Learn more</a>
+            {% else %}
+                <h1 class="display-4">Valid.</h1>
+                <p class="lead">Teks berita yang anda baca memiliki ciri <b>seperti</b> berita yang <b>valid</b> dan dapat dipercaya. Harap pastikan kembali dari sumber terpercaya.</p>
+                <hr class="my-4">
+                <p>Hasil yang ditampilkan pada laman ini tidaklah 100% akurat karena menggunakan algoritma <em>machine learning</em> sederhana.</p>
+                <a class="btn btn-primary btn-lg" href="https://www.instagram.com/jabarsaberhoaks/?hl=id" role="button">Learn more</a>
+            {% endif %}
+        </div>
+
+    </body>
+</html>
