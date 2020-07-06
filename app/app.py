@@ -8,12 +8,12 @@ def home():
     return render_template('home.html')
 
 @app.route('/result', methods=["POST"])
-def predict_fun():
+def predict():
     
-    NB_hoax_model = open('NB_hoax_model.pkl', 'rb')
+    NB_hoax_model = open('app/NB_hoax_model.pkl', 'rb')
     clf = joblib.load(NB_hoax_model)
     
-    cv_model = open('cv.pkl', 'rb')
+    cv_model = open('app/cv.pkl', 'rb')
     cv = joblib.load(cv_model)
 
     if request.method == "POST":
@@ -23,7 +23,13 @@ def predict_fun():
         vect = cv.transform(data).toarray()
         my_prediction = clf.predict(vect)
 
-    return render_template('result.html', prediction=my_prediction)
+        if my_prediction == 1:
+            result = "Hoax!"
+            
+        else:
+            result = "Valid."
+
+    return render_template('result.html', prediction=result)
 
 
 if __name__ == '__main__':
